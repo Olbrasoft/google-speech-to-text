@@ -117,15 +117,36 @@ This library uses Google's unofficial Speech API endpoint that powers Chrome's W
 https://www.google.com/speech-api/v2/recognize
 ```
 
-It uses the Chromium API key which is publicly available and used by Chrome browser for speech recognition.
+### About the API Key
 
-**Note:** This is an unofficial API. For production use with high volume, consider using [Google Cloud Speech-to-Text](https://cloud.google.com/speech-to-text).
+The library uses a Chromium API key (`AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw`) that has been extracted from the Chromium project and is widely used in open-source projects.
+
+**Important facts:**
+
+| | |
+|---|---|
+| **Origin** | Internal Chromium project key |
+| **Intended use** | Chromium development only, NOT for public use |
+| **Documentation** | None - Google doesn't officially support this |
+| **Quota** | Limited, cannot be increased |
+
+**What Google/Chromium says:**
+
+> *"The 'Google Speech API' is intended for use by Chromium only; it's not for general public use. That is why there is no documentation and no way to get additional quota."*
+> — [Chromium Dev Group](https://groups.google.com/a/chromium.org/g/chromium-dev/c/5PrGai_wOZU)
+
+> *"The API key allows you to use them within your own build of Chromium, not for some other application. If you choose to try to use them anyway, you do so at your own risk."*
+> — [Chromium API Keys Documentation](https://www.chromium.org/developers/how-tos/api-keys/)
+
+**Summary:** This is a **gray area**. The key works, but using it outside of Chromium technically violates Google's Terms of Service. It may stop working at any time. For production/commercial use, please use [Google Cloud Speech-to-Text](https://cloud.google.com/speech-to-text).
 
 ## Limitations
 
 - Audio files should be under 1 minute for best results
 - Rate limiting may apply for high-volume usage
+- API key may stop working at any time (unofficial)
 - Not recommended for production/commercial use
+- Technically violates Google's ToS
 
 ## License
 
