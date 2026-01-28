@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "google-speech-to-text"
+version = "0.1.0"
+description = "Python library for Google Speech-to-Text using free Chromium API"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+authors = [
+    { name = "Olbrasoft", email = "olbrasoft@gmail.com" }
+]
+keywords = ["speech-to-text", "stt", "google", "transcription", "voice"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+dependencies = [
+    "requests>=2.25.0",
+]
+
+[project.optional-dependencies]
+audio = ["pydub>=0.25.0"]
+dev = ["pytest>=7.0.0", "pytest-cov>=4.0.0"]
+
+[project.scripts]
+gstt = "google_speech_to_text.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Olbrasoft/google-speech-to-text"
+Repository = "https://github.com/Olbrasoft/google-speech-to-text"
+Issues = "https://github.com/Olbrasoft/google-speech-to-text/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["google_speech_to_text"]
